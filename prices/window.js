@@ -56,5 +56,5 @@ $.ajax(url).done(function (csv) {
 })
 
 }
-
+$(repeat)
 setInterval(repeat,3000)
