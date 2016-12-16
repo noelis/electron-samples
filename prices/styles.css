@@ -13,12 +13,17 @@
   color: #E5E5E5;
 }
 
+.platinum, .platinum small {
+  background-color: #334045;
+  color: #E5E5E5;
+}
+
 html, body, .container-fluid {
   height: 100%;
 }
 
 .row {
-  height: 33.33333333%;
+  height: 25%;
 }
 
 .price {
@@ -44,3 +49,5 @@ html, body, .container-fluid {
 .change:empty, .price:empty {
   display: none;
 }
+Contact GitHub API Training Shop Blog About
+© 2016 GitHub, Inc. Terms Privacy Security Status Help

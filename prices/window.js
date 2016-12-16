@@ -1,10 +1,11 @@
 // Run this function after the page has loaded
-$(function () {
+function repeat () {
 
 var stocks = [
   "CL=F", // Crude oil, http://finance.yahoo.com/quote/CL=F?p=CL=F
   "GC=F", // Gold, https://finance.yahoo.com/quote/GC=F?p=GC=F
-  "SI=F"  // Silver, https://finance.yahoo.com/quote/SI=F?p=SI=F
+  "SI=F", // Silver, https://finance.yahoo.com/quote/SI=F?p=SI=F
+  "PL=F"  // Platinum, https://finance.yahoo.com/quote/PL=F?p=PL=F 
 ]
 
 var fields = 'f=pl1' // Requests the current price and previous closing price
@@ -31,7 +32,7 @@ $.ajax(url).done(function (csv) {
 
     // Add a leading + for positive change
     if (change >= 0) {
-      change = '+' + change
+      change = '+' + Math.round((change/previousPrice) * 10000)/100 + '%'
     }
 
     // Add prices and changes to HTML element
@@ -45,9 +46,15 @@ $.ajax(url).done(function (csv) {
       $('#silver-price').text(currentPrice.toLocaleString())
       $('#silver-change').text(change)
     }
+      else if (i == 3) { // Platinum
+      $('#platinum-price').text(currentPrice.toLocaleString())
+      $('#platinum-change').text(change)
+    }
   }
 }).fail(function (error) {
   console.error(error)
 })
 
-})
+}
+
+setInterval(repeat,3000)
